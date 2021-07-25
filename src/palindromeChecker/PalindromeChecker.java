@@ -5,18 +5,18 @@ public class PalindromeChecker {
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-	System.out.println("Enter the phrase you want to test as a palindrome. Please note we will ignore punctuation, spaces, and symbols when analyzing your phrase.");
-	String phrase = scanner.nextLine();
-	isPlalindrome(phrase);
-	
-
+		System.out.println("Enter the phrase you want to test as a palindrome. Please note we will ignore punctuation, spaces, and symbols when analyzing your phrase.");
+		String phrase = scanner.nextLine();
+		isPlalindrome(phrase);
 	}
 	
 	public static void isPlalindrome(String phrase) {
+//		format input phrase to ignore capitalization, spaces, and punctuation
 		String regexString = "\\W+|_";
 		phrase = phrase.toLowerCase();
 		String formattedPhrase = phrase.replaceAll(regexString, "");
-		String[] reverseArr= formattedPhrase.split("");
+//		reverse phrase to test
+		String[] reverseArr = formattedPhrase.split("");
 		Collections.reverse(Arrays.asList(reverseArr));
 		String reverseTest = String.join("", reverseArr);
 		if (reverseTest.equals(formattedPhrase)) {
@@ -26,5 +26,4 @@ public class PalindromeChecker {
 			System.out.println(formattedPhrase + " is not a palindrome!");
 		}
 	}
-
 }
